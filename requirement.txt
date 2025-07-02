@@ -1,0 +1,4 @@
+rich
+typer[all]
+GitPython
+watchdog

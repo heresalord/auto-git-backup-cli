@@ -1,0 +1,90 @@
+Auto Git Backup - Configuration Guide
+=====================================
+
+Overview
+--------
+This tool automatically detects local file changes in your project folder
+and creates Git commits with timestamped messages to back them up.
+It can also watch for changes continuously and perform automatic backups.
+
+Getting Started
+---------------
+1. Run the tool and initialize the configuration:
+   > python main.py init
+
+2. When prompted, enter the full path of the folder you want to back up.
+   The tool will check if the folder is a Git repository. If not, you
+   can choose to initialize a new Git repo automatically.
+
+3. A configuration file '.autogitbackup.json' and ignore file '.backupignore'
+   will be created in your current working directory.
+
+4. Use the interactive menu or CLI commands to perform backups, restores,
+   watch for changes, or modify settings.
+
+Configuration File: .autogitbackup.json
+---------------------------------------
+The configuration file is a JSON file containing these main options:
+
+- commit_interval (int)
+  The interval in minutes between automatic commits when watching for changes.
+
+- auto_push (bool)
+  Whether to automatically push commits to the remote repository after committing.
+
+- remote_name (string)
+  The name of the remote Git repository to push to (default: "origin").
+
+- branch (string)
+  The branch name where commits will be made (default: "autobackup/main").
+
+- commit_message_prefix (string)
+  Prefix added to every commit message to identify auto backups.
+
+- watch_extensions (list of strings)
+  List of file extensions to monitor for changes (e.g., ".py", ".js", ".html").
+
+- excluded_paths (list of strings)
+  List of folder or file names to exclude from monitoring and commits
+  (e.g., "node_modules", "__pycache__").
+
+- project_path (string)
+  Absolute path of the folder where the Git repository is located
+  and where backups are performed.
+
+Ignore File: .backupignore
+--------------------------
+List files or directories (one per line) that should be ignored by the backup tool,
+similar to .gitignore. By default includes:
+
+  node_modules
+  __pycache__
+
+Usage Tips
+----------
+- Always initialize the configuration before running backups.
+
+- Modify configuration through the interactive menu or by editing
+  '.autogitbackup.json' directly.
+
+- Make sure your project folder is a Git repository or initialize it
+  during setup.
+
+- Use the 'watch' command to start automatic continuous backups.
+
+Commands Summary
+----------------
+- init       Initialize configuration and project folder.
+
+- backup     Perform a one-time backup (git commit).
+
+- restore    Restore files from a previous backup.
+
+- watch      Continuously watch for changes and backup automatically.
+
+- info       Display the current configuration.
+
+Support
+-------
+Developed by KMS STUDIO DEV
+For issues or questions, contact: rock@kmsstudiodev.com

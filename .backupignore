@@ -1,0 +1,3 @@
+# Fichiers/dossiers ignorés
+node_modules
+__pycache__
